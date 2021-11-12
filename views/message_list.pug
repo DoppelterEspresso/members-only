@@ -12,11 +12,17 @@ block content
           hr
           p= message.text
           hr
-          if currentUser
-            if currentUser.member_status 
-              span By: #{message.creator.first_name}
-          else 
-            span By: Unknown!
+          div.message-bottom
+            if currentUser
+              if currentUser.member_status || currentUser.admin_status
+                span By: #{message.creator.first_name}
+              else 
+                span By: Unknown!
+            else 
+              span By: Unknown!
+            
+            if currentUser && currentUser.admin_status
+              a(href=`/messages/${message._id}/delete`) Delete Message
 
 
     

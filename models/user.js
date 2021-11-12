@@ -8,6 +8,7 @@ var UserSchema = new Schema({
   username: { type: String, required: true, maxlength: 200 },
   password: { type: String, required: true },
   member_status: { type: Boolean, default: false },
+  admin_status: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model("User", UserSchema);

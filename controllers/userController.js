@@ -98,3 +98,32 @@ exports.user_update_post = [
     }
   },
 ];
+
+exports.user_admin_get = function (req, res, next) {
+  if (req.user) {
+    res.render("admin_form", { title: "Admin" });
+  } else {
+    res.redirect("/users/log-in");
+  }
+};
+
+exports.user_admin_post = [
+  body("adminPassword").trim().escape(),
+
+  (req, res, next) => {
+    if (req.body.adminPassword === process.env.ADMIN_PASSWORD) {
+      User.findByIdAndUpdate(
+        req.user._id,
+        { admin_status: true },
+        function (err, theUser) {
+          if (err) {
+            return next(err);
+          }
+          res.redirect("/");
+        }
+      );
+    } else {
+      res.render("admin_form", { title: "Wrong Password!" });
+    }
+  },
+];

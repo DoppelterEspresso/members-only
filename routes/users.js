@@ -26,12 +26,18 @@ router.post(
   })
 );
 
-router.get("/log-out", userController.user_log_out);
-
 // GET User membership update form
 router.get("/member", userController.user_update_get);
 
 // POST User membership update form
 router.post("/member", userController.user_update_post);
+
+// GET User admin update form
+router.get("/admin", userController.user_admin_get);
+
+// POST User admin uodate form
+router.post("/admin", userController.user_admin_post);
+
+router.get("/log-out", userController.user_log_out);
 
 module.exports = router;

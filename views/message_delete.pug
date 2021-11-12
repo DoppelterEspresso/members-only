@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  div.flex-container
+    h1.title Do you want to delete the message "#{message.title}" by "#{message.creator.first_name}"
+
+    form(action="" method="POST")
+      div.form-container
+        button.delete-button(type="submit") Delete Message
+
+    if errors 
+      ul.error-list
+        each error in errors 
+          li= error.msg
