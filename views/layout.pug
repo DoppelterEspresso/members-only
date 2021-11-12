@@ -4,7 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    header 
+    header.desktop-header
       if currentUser
         div.welcome-message
           span Welcome, #{currentUser.first_name}
@@ -19,4 +19,22 @@ html
         else 
           a.header-link(href="/users/sign-up") Sign up
           a.header-link(href="/users/log-in") Log in
+    header.mobile-header
+      div.dropdown
+        button.dropbtn(onclick="toggleDropdown()") Odin Clubhouse
+        div.dropdown-content
+          if currentUser 
+            span.mobile-welcome Welcome, #{currentUser.first_name}
+            hr
+            if !currentUser.member_status
+              a(href="/users/member").header-link Become a member
+            a.header-link(href="/messages/create") Create Message
+            a.header-link(href="/users/log-out") Log Out
+          else 
+            a.header-link(href="/users/sign-up") Sign up
+            a.header-link(href="/users/log-in") Log in
+          a.header-link(href="/") Home
+    script(src="/javascripts/main.js")
+
+
     block content

@@ -30,7 +30,7 @@ header {
 }
 
 .header-link {
-  padding: 0 15px;
+  padding: 10px 15px;
   font-size: 18px;
 }
 
@@ -129,4 +129,57 @@ hr {
   color: white;
   font-size: 20px;
   background-color: crimson;
+}
+
+/* Mobile */
+
+.mobile-header {
+  display: none;
+}
+
+.mobile-welcome {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+.dropdown {
+  width: fit-content;
+}
+
+.dropbtn {
+  font-size: 25px;
+  border: none;
+  background-color: darkslateblue;
+  color: white;
+  text-decoration: white underline;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: darkslateblue;
+  z-index: 1;
+}
+
+/* Media queries */
+@media only screen and (max-width: 992px) {
+  form {
+    width: fit-content;
+  }
+
+  .desktop-header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: left;
+  }
+
+  .clicked {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
 }
