@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header.desktop-header
@@ -21,7 +22,7 @@ html
           a.header-link(href="/users/log-in") Log in
     header.mobile-header
       div.dropdown
-        button.dropbtn(onclick="toggleDropdown()") Odin Clubhouse
+        button.dropbtn Odin Clubhouse
         div.dropdown-content
           if currentUser 
             span.mobile-welcome Welcome, #{currentUser.first_name}
