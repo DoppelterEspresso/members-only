@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+  div.flex-container
+    h1.title= title
+
+    form(action="" method="POST")
+      div.form-container
+        div.form-element
+          label(for="memberPassword")
+          input(type="text" required=true placeholder="Member Password" name="memberPassword")
+        button.submit-button(type="submit") Get Access
+
+    if errors 
+      ul.error-list
+        each error in errors 
+          li= error.msg

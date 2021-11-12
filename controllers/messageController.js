@@ -2,12 +2,14 @@ const { body, validationResult } = require("express-validator");
 const Message = require("../models/message");
 
 exports.message_list = function (req, res, next) {
-  Message.find().exec(function (err, list_messages) {
-    if (err) {
-      return next(err);
-    }
-    res.render("message_list", { message_list: list_messages });
-  });
+  Message.find()
+    .populate("creator")
+    .exec(function (err, list_messages) {
+      if (err) {
+        return next(err);
+      }
+      res.render("message_list", { message_list: list_messages });
+    });
 };
 
 exports.message_create_get = function (req, res, next) {

@@ -8,6 +8,8 @@ html
       if currentUser
         div.welcome-message
           span Welcome, #{currentUser.first_name}
+          if !currentUser.member_status
+            a(href="/users/member").member-link Become a Member
       span.logo
         a(href="/")#home-link Odin Clubhouse
       div.nav-links

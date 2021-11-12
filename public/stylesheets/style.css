@@ -51,6 +51,10 @@ header {
   color: white;
 }
 
+.member-link {
+  padding-left: 30px;
+}
+
 .title {
   margin-bottom: 25px;
 }
@@ -89,4 +93,27 @@ form {
 
 .error-list {
   margin-top: 40px;
+}
+
+/* Message styling */
+.message-container {
+  width: 40%;
+  padding: 40px;
+  border: 1px solid rgb(0, 0, 143);
+  margin-bottom: 30px;
+}
+
+.message-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.message-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+hr {
+  margin: 10px 0;
 }

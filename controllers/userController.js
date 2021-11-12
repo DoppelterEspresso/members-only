@@ -2,6 +2,7 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const User = require("../models/user");
+require("dotenv").config();
 
 //exports.user_list
 
@@ -68,3 +69,32 @@ exports.user_log_out = function (req, res, next) {
   req.logout();
   res.redirect("/");
 };
+
+exports.user_update_get = function (req, res, next) {
+  if (req.user) {
+    res.render("member_form", { user: req.user, title: "Membership" });
+  } else {
+    res.redirect("/users/log-in");
+  }
+};
+
+exports.user_update_post = [
+  body("memberPassword").trim().escape(),
+
+  (req, res, next) => {
+    if (req.body.memberPassword === process.env.MEMBER_PASSWORD) {
+      User.findByIdAndUpdate(
+        req.user._id,
+        { member_status: true },
+        function (err, theUser) {
+          if (err) {
+            return next(err);
+          }
+          res.redirect("/");
+        }
+      );
+    } else {
+      res.render("member_form", { title: "Wrong Password!" });
+    }
+  },
+];

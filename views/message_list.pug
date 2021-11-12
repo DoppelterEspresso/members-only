@@ -2,10 +2,23 @@ extends layout
 
 block content 
 
-  if message_list
-    each message in message_list 
-      div 
-        p= message.title
-  
-  else 
-    p There are no messages
+  div.flex-container
+    if message_list
+      each message in message_list 
+        div.message-container
+          div.message-top
+            span.message-title= message.title
+            span= message.date_format
+          hr
+          p= message.text
+          hr
+          if currentUser
+            if currentUser.member_status 
+              span By: #{message.creator.first_name}
+          else 
+            span By: Unknown!
+
+
+    
+    else 
+      p There are no messages

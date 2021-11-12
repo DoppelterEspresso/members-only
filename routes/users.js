@@ -28,4 +28,10 @@ router.post(
 
 router.get("/log-out", userController.user_log_out);
 
+// GET User membership update form
+router.get("/member", userController.user_update_get);
+
+// POST User membership update form
+router.post("/member", userController.user_update_post);
+
 module.exports = router;
