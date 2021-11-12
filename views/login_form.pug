@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+  div.flex-container
+    h1.title= title 
+
+    form(action="" method="POST")
+      div.form-container
+        div.form-element
+          label(for="username")
+          input.form-input(type="email" placeholder="Username (Email)" required=true name="username")
+        div.form-element
+          label(for="password")
+          input.form-input(type="password" placeholder="Password" required=true name="password")
+        button.submit-button(type="submit") Log in
+
+    if errors 
+      ul.error-list
+        each error in errors 
+          li= error.msg

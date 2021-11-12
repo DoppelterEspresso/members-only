@@ -1,0 +1,31 @@
+extends layout 
+
+block content 
+  div.flex-container
+    h1.title= title 
+
+    form(action="" method="POST")
+      div.form-container
+        div.form-element
+          label(for="firstName")
+          input.form-input(type=text placeholder="First Name" required=true name="firstName")
+        div.form-element
+          label(for="lastName")
+          input.form-input(type=text placeholder="Last Name" required=true name="lastName")
+        div.form-element
+          label(for="username")
+          input.form-input(type="email" placeholder="Username (Email)" required=true name="username")
+        div.form-element
+          label(for="password")
+          input.form-input(type="password" placeholder="Password" required=true name="password")
+        div.form-element
+          label(for="passwordConfirm")
+          input.form-input(type="password" placeholder="Confirm Password" required=true name="confirmPassword")
+
+        button.submit-button(type="submit") Create User
+
+    if errors 
+      ul.error-list
+        each error in errors 
+          li= error.msg
+

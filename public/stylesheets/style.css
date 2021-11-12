@@ -1,8 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  margin-bottom: 100px;
+  background-color: darkslateblue;
+}
+
+.logo {
+  font-size: 40px;
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+form {
+  width: 20%;
+  border: 2px rgb(0, 0, 143) solid;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-element {
+  padding: 20px;
+}
+
+.form-input {
+  font-size: 17px;
+  padding: 5px;
+}
+
+.submit-button {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.error-list {
+  margin-top: 40px;
 }
