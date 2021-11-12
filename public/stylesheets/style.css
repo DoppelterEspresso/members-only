@@ -23,8 +23,32 @@ header {
   background-color: darkslateblue;
 }
 
+.nav-links {
+  position: absolute;
+  right: 0;
+  padding: 0 30px;
+}
+
+.header-link {
+  padding: 0 15px;
+  font-size: 18px;
+}
+
 .logo {
   font-size: 40px;
+}
+
+#home-link {
+  color: white;
+  font-weight: 700;
+}
+
+.welcome-message {
+  position: absolute;
+  left: 0;
+  padding: 30px;
+  font-size: 20px;
+  color: white;
 }
 
 .title {

@@ -1,9 +1,8 @@
 var express = require("express");
 var router = express.Router();
+var messageController = require("../controllers/messageController");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express", user: req.user });
-});
+router.get("/", messageController.message_list);
 
 module.exports = router;

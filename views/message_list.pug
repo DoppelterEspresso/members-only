@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+
+  if message_list
+    each message in message_list 
+      div 
+        p= message.title
+  
+  else 
+    p There are no messages

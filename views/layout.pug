@@ -5,7 +5,16 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header 
-      span.logo Odin Clubhouse
-      if currentUser 
-        a(href="users/log-out") Log Out
+      if currentUser
+        div.welcome-message
+          span Welcome, #{currentUser.first_name}
+      span.logo
+        a(href="/")#home-link Odin Clubhouse
+      div.nav-links
+        if currentUser 
+          a.header-link(href="/messages/create") Create Message
+          a.header-link(href="/users/log-out") Log Out
+        else 
+          a.header-link(href="/users/sign-up") Sign up
+          a.header-link(href="/users/log-in") Log in
     block content

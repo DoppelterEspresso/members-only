@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+
+  div.flex-container
+    h1.title= title 
+
+    form(action="" method="POST")
+      div.form-container
+        div.form-element
+          label(for="messageTitle")
+          input(type="text" required=true placeholder="Message Title" name="messageTitle")
+        div.form-element
+          label(for="messageText")
+          textarea(required=true placeholder="Message Text" name="messageText" rows="8" cols="40")
+        button.submit-button(type="submit") Create Message
+
+    if errors 
+      ul.error-list
+        each error in errors 
+          li= error.msg
