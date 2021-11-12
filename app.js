@@ -27,7 +27,7 @@ const helmet = require("helmet");
 
 var app = express();
 
-app.use(helmet);
+app.use(helmet());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
